@@ -1,33 +1,38 @@
-# StockPilot 静的Web版
+# Stockly UI
 
-## 起動方法
-1. ZIPを展開します。
-2. `index.html` をダブルクリックします。
-3. ブラウザーでログインします。
-
-## デモログイン
-- メール: `admin@example.com`
-- パスワード: `password123`
+Appleライクなモバイル在庫管理UIの実行可能プロトタイプです。
 
 ## 主な機能
-- ログイン画面
-- ダッシュボード
-- 商品CRUD
-- 月2回の在庫チェック
-- 在庫・消費分析
-- 在庫切れ予測
-- 推奨発注量
-- 発注済み記録
-- 履歴削除
-- CSV書き出し・読み込み
-- 設定
-- localStorage永続化
-- レスポンシブ表示
 
-## ファイル構成
-- `index.html`
-- `css/style.css`
-- `js/app.js`
+- ホームダッシュボード
+- 商品検索・在庫状態フィルター
+- 商品詳細
+- 入庫・出庫と在庫不足バリデーション
+- 操作履歴
+- JANコード入力による商品検索
+- localStorageへの永続化
+- PWA / オフラインキャッシュ
+- スマートフォンとデスクトップのレスポンシブ表示
 
-## 重要
-これはブラウザーだけで動くプロトタイプです。データはブラウザーのlocalStorageに保存されます。実際のサービス公開では、パスワードをJavaScriptに保持せず、HTTPS、サーバー側認証、データベース、権限制御、監査ログ、バックアップ、CSRF対策、レート制限を実装してください。
+## 起動
+
+Service Workerを正しく動かすため、ローカルHTTPサーバーで起動してください。
+
+```bash
+python3 -m http.server 8080
+```
+
+ブラウザーで `http://localhost:8080` を開きます。
+
+## ファイル
+
+- `index.html`: 画面骨格、ボトムナビ、入出庫シート
+- `styles.css`: AppleライクなレスポンシブUI
+- `app.js`: 状態管理、検索、画面遷移、入出庫、履歴
+- `manifest.webmanifest`: PWA設定
+- `sw.js`: オフラインキャッシュ
+- `icon.svg`: アプリアイコン
+
+## 本番接続時
+
+現在のデータ層は `localStorage` です。本番では `store.products` と `store.history` の読み書きを Cloudflare Pages Functions / D1 APIへ置き換えてください。Firebase AuthenticationのIDトークンはAPIリクエストの `Authorization: Bearer <token>` に付与し、サーバー側で検証してください。
