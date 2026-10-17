@@ -1,1 +1,37 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><title>Stockly</title><link rel="stylesheet" href="index.css"></head><body><div id="app"><header class="top-bar"><h1 id="pageTitle">ホーム</h1></header><main id="content"></main><nav class="bottom-nav"><button onclick="changePage('home')">🏠<span>ホーム</span></button><button onclick="changePage('search')">🔍<span>検索</span></button><button class="scan-btn" onclick="changePage('scan')">📷</button><button onclick="changePage('inventory')">📦<span>在庫</span></button><button onclick="changePage('operations')">📋<span>業務</span></button></nav></div><script src="index.js"></script></body></html>
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f7f8fb">
+  <meta name="description" content="スマートフォン向け在庫管理SPA">
+  <title>Stockly</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="app-header">
+      <button id="backButton" class="icon-button back-button" type="button" aria-label="前の画面へ戻る" hidden>‹</button>
+      <div class="header-copy">
+        <span class="brand-label">STOCKLY</span>
+        <h1 id="pageTitle">ホーム</h1>
+      </div>
+      <button id="headerAction" class="icon-button" type="button" aria-label="メニュー">•••</button>
+    </header>
+
+    <main id="content" class="page-content" tabindex="-1"></main>
+
+    <nav id="bottomNav" class="bottom-nav" aria-label="メインナビゲーション">
+      <a href="#/home" data-tab="home" aria-label="ホーム"><span class="nav-icon">⌂</span><small>ホーム</small></a>
+      <a href="#/search" data-tab="search" aria-label="検索"><span class="nav-icon">⌕</span><small>検索</small></a>
+      <a href="#/scan" data-tab="scan" class="scan-tab" aria-label="スキャン"><span class="nav-icon">⌗</span><small>スキャン</small></a>
+      <a href="#/inventory" data-tab="inventory" aria-label="在庫"><span class="nav-icon">▣</span><small>在庫</small></a>
+      <a href="#/operations" data-tab="operations" aria-label="業務"><span class="nav-icon">☷</span><small>業務</small></a>
+    </nav>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="index.js" defer></script>
+</body>
+</html>
