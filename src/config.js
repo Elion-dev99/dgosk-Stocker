@@ -1,0 +1,1 @@
+export const config=Object.freeze({appName:import.meta.env.VITE_APP_NAME||'Stockly',mode:import.meta.env.VITE_APP_MODE||'demo',firebase:{apiKey:import.meta.env.VITE_FIREBASE_API_KEY||'',authDomain:import.meta.env.VITE_FIREBASE_AUTH_DOMAIN||'',projectId:import.meta.env.VITE_FIREBASE_PROJECT_ID||'',appId:import.meta.env.VITE_FIREBASE_APP_ID||''}});
