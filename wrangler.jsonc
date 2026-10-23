@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "stockly-foundation",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-10-16",
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "stockly-db",
+    "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+    "migrations_dir": "migrations"
+  }],
+  "vars": {
+    "FIREBASE_PROJECT_ID": "REPLACE_WITH_FIREBASE_PROJECT_ID",
+    "ALLOWED_ORIGIN": "https://REPLACE_WITH_YOUR_DOMAIN"
+  }
+}
